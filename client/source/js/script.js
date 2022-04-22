@@ -107,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
              window.peer_stream = stream;
              onReceiveStream(stream, 'peer-camera');
              document.getElementById("connected_peer").innerHTML = 'Hola';
+             document.getElementById("form").className = 'hidden'
 
          })
         }else{
