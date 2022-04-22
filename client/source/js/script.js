@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //192.168.1.89 escritorio windows
     //192.168.1.2 mac
     var peer = new Peer({
-        // host: "localhost",
-        // port: 9000,
+    //    host: "localhost",
+    //     port: 9000,
         path: '/',
         debug: 3,
         config: {
@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             window.remoteAudio.srcObject = stream;
             window.remoteAudio.autoplay = true;
           });
+        });
 
     /**
      * Starts the request of the camera and microphone
@@ -130,4 +131,3 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     });
 }, false);
-})

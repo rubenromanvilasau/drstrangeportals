@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "scripts": {
         "start": "node peer-server.js"
-      },
+    },
     "dependencies": {
         "peer": "^0.5.3"
     }
