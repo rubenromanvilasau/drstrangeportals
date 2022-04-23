@@ -37,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         console.log('ALGUIEN SE HA CONECTADO');
         console.log('EL ID PEER ES: ' + peer_id);
-        document.getElementById("connected_peer").innerHTML = 'User';
 
     });
 
@@ -52,6 +51,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     peer.on("call", function (call) {
         //Answer the call
         call.answer(window.localStream);
+         //Hide the form
+       document.getElementById("form").className += " hidden";
         
         //On call
         call.on("stream", function (stream) {
@@ -99,23 +100,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
      */
     document.getElementById("connect-to-peer-btn").addEventListener("click", function(){
         peer_id = document.getElementById("peer_id").value;
-
         if (peer_id) {
             conn = peer.connect(peer_id);
             var call = peer.call(peer_id, window.localStream);
          call.on('stream', function (stream) {
              window.peer_stream = stream;
              onReceiveStream(stream, 'peer-camera');
-             document.getElementById("connected_peer").innerHTML = 'Hola';
              document.getElementById("form").className = 'hidden'
-
+             peer.on("disconnected", function () {
+                peer.reconnect();
+            })
          })
         }else{
             alert("You need to provide a peer to connect with !");
             return false;
         }
-        //Hide the form
-       // document.getElementById("connection-form").className += " hidden";
     }, false);
 
     /**
