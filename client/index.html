@@ -12,25 +12,24 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-6">
-                <!-- 
-                    Display video of the current user
-                    Note: mute your own video, otherwise you'll hear yourself ...
-                 -->
-                <!-- <div class="text-center">
+             <div class="col-md-6 col-lg-6"> 
+                    <!-- Display video of the current user
+                    Note: mute your own video, otherwise you'll hear yourself ... -->
+                 
+                 <div class="text-center">
                     <video id="my-camera"  width="500" height="500" autoplay="autoplay" muted="true" class="center-block"></video>
                     <span class="label label-info">You</span>
-                </div> -->
-            </div>
+                </div> 
+             </div> 
 
-            <div class="col-md-6 col-lg-6">
+             <div class="col-md-6 col-lg-6" style="margin: 0 auto">
                 <!-- Display video of the connected peer -->
-                <div class="text-center">
+                 <div class="text-center">
                     <video id="peer-camera" width="500" height="500" autoplay="autoplay" class="center-block"></video>
                     <span class="label label-info" id="connected_peer"></span>
                 </div>
-            </div>
-        </div>
+            </div> 
+        </div> 
 
         <div class="row" id="form">
             <!-- The ID of your current session -->
