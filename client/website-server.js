@@ -11,6 +11,8 @@ var credentials = {key: privateKey, cert: certificate};
 var express = require('express');
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
+
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 const port = process.env.PORT || 3000;

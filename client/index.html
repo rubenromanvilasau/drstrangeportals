@@ -3,58 +3,53 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>drStrange Portals </title>
     
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
     <!-- Use Bootswatch CSS from cdn -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css"> -->
+    <base href="/">
+    
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-             <div class="col-md-6 col-lg-6"> 
-                    <!-- Display video of the current user
-                    Note: mute your own video, otherwise you'll hear yourself ... -->
-                 
-                 <div class="text-center">
+    <section>
+            <!-- Video Dr Strange -->
+            <video width="500px" src="assets/strange.webm" controls autoplay loop> Vídeo no es soportado... </video>
+
+                    <!-- My webcam -->
+                 <!-- <div class="cam">
                     <video id="my-camera"  width="500" height="500" autoplay="autoplay" muted="true" class="center-block"></video>
-                    <span class="label label-info">You</span>
+                </div>  -->
+            
+            <!-- Display video of the connected peer  -->
+             <div class="cam"> 
+                  <div class="text-center cam">
+                    <video id="peer-camera" width="500" height="500" autoplay="autoplay" class="center-block"></video>
                 </div> 
              </div> 
 
-             <div class="col-md-6 col-lg-6" style="margin: 0 auto">
-                <!-- Display video of the connected peer -->
-                 <div class="text-center">
-                    <video id="peer-camera" width="500" height="500" autoplay="autoplay" class="center-block"></video>
-                    <span class="label label-info" id="connected_peer"></span>
-                </div>
-            </div> 
-        </div> 
-
-        <div class="row" id="form">
-            <!-- The ID of your current session -->
-            <span id="peer-id-label"></span>
-            <div class="col-md-12 col-lg-12">
-                <div class="form-horizontal" id="connection-form">
-                    <fieldset>
+            <!-- The ID of current session -->
+            <div class="start">
                         <div class="form-group">
-                            <label for="peer_id" class="col-lg-2 control-label">Peer ID</label>
-                            <div class="col-lg-10">
+                            <label for="peer_id" class="control-label">Peer ID</label>
+                            <span id="peer-id-label"></span>
+                            <div class="">
                                 <input type="text" class="form-control" name="peer_id" id="peer_id" placeholder="Peer ID" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-lg-10 col-lg-offset-2">
+                            <div class="">
                                 <button id="connect-to-peer-btn" class="btn btn-primary">CONNECT</button>
-                            </div>
                         </div>
-                    </fieldset>
                 </div>
             </div>
           
-        </div>
-    </div>
- 
+       
+        </section>
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
     <script src="resources/js/script.js"></script>
 </body>

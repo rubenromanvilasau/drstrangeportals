@@ -1,0 +1,36 @@
+body {
+    background: black; 
+    color: white;
+}
+
+video {
+    position: absolute;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom:0;
+    z-index: 0;
+}
+
+.cam {
+    width: 500px;
+    height: 500px;
+    /*background: url(../assets/test.jpg);
+    background-size: contain;*/
+    overflow: hidden;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.start{
+    position: relative;
+    margin: auto;
+    z-index:1;
+    border: 0;
+}
