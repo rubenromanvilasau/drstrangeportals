@@ -1,5 +1,4 @@
 // When the DOM is ready
-var i = 0;
 document.addEventListener("DOMContentLoaded", function(event) {
     var peer_id;
     var username;
@@ -8,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //192.168.1.89 escritorio windows
     //192.168.1.2 mac
     var peer = new Peer({
-       // host: "localhost",
-       // port: 9000,
+    //    host: "localhost",
+    //     port: 9000,
         path: '/',
         debug: 3,
         config: {
@@ -28,15 +27,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // Show the ID that allows other user to connect to your session.
     peer.on('open', function () {
        document.getElementById("peer-id-label").innerHTML = peer.id;
-       console.log("ID DE LA SESIÓN",peer.id);
+        console.log("ID DE LA SESIÓN",peer.id);
     });
 
     // When someone connects to your session:
     peer.on('connection', function (connection) {
         conn = connection;
         peer_id = connection.peer;
+
         console.log('ALGUIEN SE HA CONECTADO');
         console.log('EL ID PEER ES: ' + peer_id);
+
     });
 
     peer.on('error', function(err){
@@ -64,9 +65,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
           });
         });
 
-    peer.on("disconnected", function () {
-        peer.reconnect();
-    });        
     /**
      * Starts the request of the camera and microphone
      *
@@ -109,6 +107,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
              window.peer_stream = stream;
              onReceiveStream(stream, 'peer-camera');
              document.getElementById("form").className = 'hidden'
+             peer.on("disconnected", function () {
+                peer.reconnect();
+            })
          })
         }else{
             alert("You need to provide a peer to connect with !");

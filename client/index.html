@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <section>
+    <section class="container">
             <!-- Video Dr Strange -->
             <video width="500px" src="assets/strange.webm" controls autoplay loop> Vídeo no es soportado... </video>
 
@@ -27,13 +27,21 @@
             
             <!-- Display video of the connected peer  -->
              <div class="cam"> 
-                  <div class="text-center cam">
+                  <div class="text-center">
                     <video id="peer-camera" width="500" height="500" autoplay="autoplay" class="center-block"></video>
+                    <span class="label label-info" id="connected_peer"></span>
                 </div> 
              </div> 
 
+
+
+
+
+
+
+
             <!-- The ID of current session -->
-            <div class="start">
+             <div class="start" id="form">
                         <div class="form-group">
                             <label for="peer_id" class="control-label">Peer ID</label>
                             <span id="peer-id-label"></span>
