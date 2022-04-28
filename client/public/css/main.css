@@ -16,8 +16,6 @@ video {
 .cam {
     width: 500px;
     height: 500px;
-    /*background: url(../assets/test.jpg);
-    background-size: contain;*/
     overflow: hidden;
     margin: auto;
     position: absolute;
@@ -33,4 +31,4 @@ video {
     margin: auto;
     z-index:1;
     border: 0;
-}
+} 

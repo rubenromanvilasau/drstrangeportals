@@ -4,11 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var username;
     var conn;
 
-    //192.168.1.89 escritorio windows
-    //192.168.1.2 mac
     var peer = new Peer({
-    //    host: "localhost",
-    //     port: 9000,
         path: '/',
         debug: 3,
         config: {
@@ -24,20 +20,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
 
     // Once the initialization succeeds:
-    // Show the ID that allows other user to connect to your session.
     peer.on('open', function () {
-       document.getElementById("peer-id-label").innerHTML = peer.id;
-        console.log("ID DE LA SESIÓN",peer.id);
+      //Play portal video
+      setTimeout(function () {
+        document.getElementById("drstrangeportal").play();
+      }, 5000);
+
+      //Show the session id
+      document.getElementById("peer-id-label").innerHTML = peer.id;
+      console.log("ID DE LA SESIÓN", peer.id);
     });
 
     // When someone connects to your session:
     peer.on('connection', function (connection) {
         conn = connection;
         peer_id = connection.peer;
-
-        console.log('ALGUIEN SE HA CONECTADO');
         console.log('EL ID PEER ES: ' + peer_id);
-
     });
 
     peer.on('error', function(err){
@@ -52,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         //Answer the call
         call.answer(window.localStream);
          //Hide the form
-       document.getElementById("form").className += " hidden";
+         document.getElementById("form").style.display = "none";
         
         //On call
         call.on("stream", function (stream) {
@@ -76,7 +74,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
                        navigator.webkitGetUserMedia ||
                        navigator.mozGetUserMedia ||
                        navigator.msGetUserMedia);
-
         // Request audio an video
         navigator.getUserMedia({ audio: true, video: true }, callbacks.success , callbacks.error);
     }
@@ -91,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         var video = document.getElementById(element_id);
         // Set the given stream as the video source
         video.srcObject = stream;
-
         // Store a global reference of the stream
         window.peer_stream = stream;
     }
@@ -106,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
          call.on('stream', function (stream) {
              window.peer_stream = stream;
              onReceiveStream(stream, 'peer-camera');
-             document.getElementById("form").className = 'hidden'
+             document.getElementById("form").style.display = "none";
              peer.on("disconnected", function () {
                 peer.reconnect();
             })

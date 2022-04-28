@@ -18,7 +18,10 @@
 <body>
     <section class="container">
             <!-- Video Dr Strange -->
-            <video width="500px" src="assets/strange.webm" controls autoplay loop> Vídeo no es soportado... </video>
+            <video id="drstrangeportal" width="500px"  controls autoplay loop preload="auto">
+                <source src="assets/strange.webm" typle="video/webm"></source>
+                Vídeo no es soportado... 
+            </video>
 
                     <!-- My webcam -->
                  <!-- <div class="cam">
@@ -26,40 +29,30 @@
                 </div>  -->
             
             <!-- Display video of the connected peer  -->
-             <div class="cam"> 
-                  <div class="text-center">
-                    <video id="peer-camera" width="500" height="500" autoplay="autoplay" class="center-block"></video>
+            <div class="cam">
+                <div class="text-center">
+                    <video id="peer-camera" autoplay="autoplay" class="center-block"></video>
                     <span class="label label-info" id="connected_peer"></span>
-                </div> 
-             </div> 
-
-
-
-
-
-
-
-
-            <!-- The ID of current session -->
-             <div class="start" id="form">
-                        <div class="form-group">
-                            <label for="peer_id" class="control-label">Peer ID</label>
-                            <span id="peer-id-label"></span>
-                            <div class="">
-                                <input type="text" class="form-control" name="peer_id" id="peer_id" placeholder="Peer ID" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="">
-                                <button id="connect-to-peer-btn" class="btn btn-primary">CONNECT</button>
-                        </div>
                 </div>
             </div>
-          
-       
+
+            <!-- The ID of current session -->
+            <div class="start" id="form">
+                <div class="form-group">
+                    <label for="peer_id" class="control-label">Peer ID</label>
+                    <span id="peer-id-label"></span>
+                    <div class="">
+                        <input type="text" class="form-control" name="peer_id" id="peer_id" placeholder="Peer ID" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="">
+                        <button id="connect-to-peer-btn" class="btn btn-primary">CONNECT</button>
+                    </div>
+                </div>
+            </div>
         </section>
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
     <script src="resources/js/script.js"></script>
 </body>
-
 </html>
