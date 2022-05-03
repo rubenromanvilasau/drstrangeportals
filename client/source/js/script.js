@@ -22,10 +22,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     // Once the initialization succeeds:
     peer.on('open', function () {
-      //Play portal video
-      setTimeout(function () {
-        document.getElementById("drstrangeportal").play();
-      }, 5000);
+    //Play portal video
+    //   setTimeout(function () {
+    //     document.getElementById("drstrangeportal").play();
+    //   }, 5000);
 
       //Show the session id
       document.getElementById("peer-id-label").innerHTML = peer.id;
