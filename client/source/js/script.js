@@ -1,11 +1,12 @@
 // When the DOM is ready
 document.addEventListener("DOMContentLoaded", function(event) {
     var peer_id;
-    var username;
     var conn;
 
     var peer = new Peer({
-        path: '/',
+        host: "romandev.cl",
+        port: 9000,
+        path: '/peerjs',
         debug: 3,
         config: {
             'iceServers': [
@@ -119,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     requestLocalVideo({
         success: function(stream){
             window.localStream = stream;
-            onReceiveStream(stream, 'my-camera');
+           // onReceiveStream(stream, 'my-camera');
         },
         error: function(err){
             alert("Cannot get access to your camera and video !");
